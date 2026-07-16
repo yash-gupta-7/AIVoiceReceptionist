@@ -1,0 +1,613 @@
+[
+  {
+    "scenario": "en_fuzzy_date_around_1",
+    "language": "en",
+    "passed": true,
+    "failures": [],
+    "turns_to_completion": 3,
+    "redundant_questions": 0,
+    "llm_ms": [
+      782,
+      952,
+      793,
+      725,
+      604,
+      735
+    ],
+    "tool_calls": [
+      {
+        "name": "get_caller_context",
+        "ms": 11,
+        "ok": true
+      },
+      {
+        "name": "check_availability",
+        "ms": 9,
+        "ok": true
+      },
+      {
+        "name": "book_appointment",
+        "ms": 119,
+        "ok": true
+      }
+    ],
+    "transcript": [
+      {
+        "role": "user",
+        "content": "Hi, do you have anything with a general dentist on July 20 around 1?"
+      },
+      {
+        "role": "assistant",
+        "content": "Sure! I have three slots around 1 pm on Monday 20 July:\n\n- 12:30 pm with Dr Sarah Mistry at our Bank branch  \n- 1:00 pm with Dr Sarah Mistry at our Bank branch  \n- 1:00 pm with Dr Anil Gupta at our Canary Wharf branch  \n\nMay I have your full name to lock in the slot you prefer?"
+      },
+      {
+        "role": "user",
+        "content": "The first one works. I'm Alice Morgan, date of birth 12 May 1991."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it, Alice. You’re booked with Dr Sarah Mistry at our Bank branch on Monday 20 July at 12:30 pm. Your confirmation number is **1**. Let us know if you need to change or cancel – otherwise we’ll see you then!"
+      },
+      {
+        "role": "user",
+        "content": "Yes, book it please."
+      },
+      {
+        "role": "assistant",
+        "content": "Your appointment is already confirmed for Monday 20 July at 12:30 pm with Dr Sarah Mistry at the Bank branch. Anything else I can help you with?"
+      }
+    ]
+  },
+  {
+    "scenario": "en_weekday_preference",
+    "language": "en",
+    "passed": true,
+    "failures": [],
+    "turns_to_completion": 4,
+    "redundant_questions": 0,
+    "llm_ms": [
+      609,
+      704,
+      760,
+      1047,
+      771,
+      622,
+      879,
+      650,
+      810
+    ],
+    "tool_calls": [
+      {
+        "name": "get_caller_context",
+        "ms": 18,
+        "ok": true
+      },
+      {
+        "name": "check_availability",
+        "ms": 5,
+        "ok": true
+      },
+      {
+        "name": "find_earliest_slot",
+        "ms": 30,
+        "ok": true
+      },
+      {
+        "name": "check_availability",
+        "ms": 18,
+        "ok": true
+      },
+      {
+        "name": "book_appointment",
+        "ms": 86,
+        "ok": true
+      }
+    ],
+    "transcript": [
+      {
+        "role": "user",
+        "content": "I need a hygiene appointment. Mondays and Wednesdays work well for me."
+      },
+      {
+        "role": "assistant",
+        "content": "I’m sorry, there are no hygiene openings on Mondays or Wednesdays. The next available slot is Thursday 16 July at 10:00 am with Dr Priya Nair at our Bank branch. Does that work for you, and could I have your full name to confirm?"
+      },
+      {
+        "role": "user",
+        "content": "Hmm, none of those suit. What about orthodontics instead, same days?"
+      },
+      {
+        "role": "assistant",
+        "content": "We have Orthodontics slots on Monday 20 July at 9:00 am, 10:00 am or 11:00 am with Dr James O’Connor at our Bank branch. Which time works for you, and may I have your full name to book?"
+      },
+      {
+        "role": "user",
+        "content": "Take the earliest of those. My name is Ben Carter, DOB 3 March 1988."
+      },
+      {
+        "role": "assistant",
+        "content": "Your appointment is confirmed: Ben Carter with Dr James O’Connor at City Dental Care — Bank on Monday 20 July at 9:00 am. Your confirmation number is 1. Let me know if you need anything else."
+      },
+      {
+        "role": "user",
+        "content": "Yes confirm it."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it—your booking stands as confirmed: Ben Carter, Dr James O’Connor, Bank branch, Monday 20 July at 9:00 am, confirmation #1. Let me know if you’d like to change anything or need anything else."
+      }
+    ]
+  },
+  {
+    "scenario": "en_earliest_cross_branch",
+    "language": "en",
+    "passed": true,
+    "failures": [],
+    "turns_to_completion": 3,
+    "redundant_questions": 0,
+    "llm_ms": [
+      609,
+      599,
+      1106,
+      807,
+      567,
+      678
+    ],
+    "tool_calls": [
+      {
+        "name": "get_caller_context",
+        "ms": 32,
+        "ok": true
+      },
+      {
+        "name": "find_earliest_slot",
+        "ms": 11,
+        "ok": true
+      },
+      {
+        "name": "book_appointment",
+        "ms": 98,
+        "ok": true
+      }
+    ],
+    "transcript": [
+      {
+        "role": "user",
+        "content": "What's the earliest general dentistry slot you have today, any branch?"
+      },
+      {
+        "role": "assistant",
+        "content": "We have an opening today at 9:40 am with Dr Anil Gupta at our Canary Wharf branch. May I have your full name to confirm the booking?"
+      },
+      {
+        "role": "user",
+        "content": "Book it. Chloe Davis, born 9 September 1995."
+      },
+      {
+        "role": "assistant",
+        "content": "Your appointment is confirmed for Chloe Davis with Dr Anil Gupta at City Dental Care — Canary Wharf on Thursday the sixteenth at 9:40 am. Your confirmation number is 13."
+      },
+      {
+        "role": "user",
+        "content": "Yes."
+      },
+      {
+        "role": "assistant",
+        "content": "Great! Let me know if you need anything else or would like to adjust the appointment. Have a wonderful day!"
+      }
+    ]
+  },
+  {
+    "scenario": "en_returning_patient",
+    "language": "en",
+    "passed": true,
+    "failures": [],
+    "turns_to_completion": 3,
+    "redundant_questions": 0,
+    "llm_ms": [
+      665,
+      1413,
+      870,
+      756,
+      821,
+      730
+    ],
+    "tool_calls": [
+      {
+        "name": "get_caller_context",
+        "ms": 9,
+        "ok": true
+      },
+      {
+        "name": "check_availability",
+        "ms": 42,
+        "ok": true
+      },
+      {
+        "name": "book_appointment",
+        "ms": 84,
+        "ok": true
+      }
+    ],
+    "transcript": [
+      {
+        "role": "user",
+        "content": "Hello, I'd like to book a check-up sometime this week, afternoon if possible."
+      },
+      {
+        "role": "assistant",
+        "content": "Sure, David. I have three afternoon slots available this week:\n\n- Thursday 16 July at 12:00 pm with Dr Sarah Mistry at our Bank branch  \n- Thursday 16 July at 12:20 pm with Dr Anil Gupta at our Canary Wharf branch  \n- Thursday 16 July at 12:30 pm with Dr Sarah Mistry at our Bank branch  \n\nWhich one would you like to book?"
+      },
+      {
+        "role": "user",
+        "content": "Yes it's David. The first afternoon slot is fine."
+      },
+      {
+        "role": "assistant",
+        "content": "Your check‑up is booked for **David Evans** with **Dr Sarah Mistry** at **City Dental Care – Bank** on **Thursday 16 July at 12:00 pm**. Your confirmation number is **1**. Let us know if you need anything else!"
+      },
+      {
+        "role": "user",
+        "content": "Yes, confirm."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it—your appointment is confirmed for **David Evans** with **Dr Sarah Mistry** at **City Dental Care – Bank** on **Thursday 16 July at 12:00 pm**. Confirmation number **1**. If you need to change or cancel, just let me know."
+      }
+    ]
+  },
+  {
+    "scenario": "en_family_line_disambiguation",
+    "language": "en",
+    "passed": true,
+    "failures": [],
+    "turns_to_completion": 4,
+    "redundant_questions": 0,
+    "llm_ms": [
+      712,
+      588,
+      712,
+      717,
+      858,
+      797,
+      562
+    ],
+    "tool_calls": [
+      {
+        "name": "get_caller_context",
+        "ms": 21,
+        "ok": true
+      },
+      {
+        "name": "check_availability",
+        "ms": 8,
+        "ok": true
+      },
+      {
+        "name": "book_appointment",
+        "ms": 76,
+        "ok": true
+      }
+    ],
+    "transcript": [
+      {
+        "role": "user",
+        "content": "Hi, I want to book a hygiene appointment."
+      },
+      {
+        "role": "assistant",
+        "content": "Hi Maria or Sofia? Which one am I speaking with?"
+      },
+      {
+        "role": "user",
+        "content": "It's for Sofia. Any Thursday morning is great."
+      },
+      {
+        "role": "assistant",
+        "content": "We have Thursday morning slots with Dr Priya Nair at our Bank branch: 10:00 am, 10:30 am or 11:00 am. Which time works for Sofia?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, the first one. Book it."
+      },
+      {
+        "role": "assistant",
+        "content": "Just to confirm: Sofia Lopez with Dr Priya Nair at our Bank branch on Thursday 16 July at 10:00 am. Shall I go ahead and book that for you?"
+      },
+      {
+        "role": "user",
+        "content": "Yes."
+      },
+      {
+        "role": "assistant",
+        "content": "Your hygiene appointment is booked, Sofia. It’s with Dr Priya Nair at our Bank branch on Thursday 16 July at 10:00 am. Your confirmation number is 1. Have a great day!"
+      }
+    ]
+  },
+  {
+    "scenario": "en_dropped_call_resume",
+    "language": "en",
+    "passed": true,
+    "failures": [],
+    "turns_to_completion": 3,
+    "redundant_questions": 0,
+    "llm_ms": [
+      572,
+      926,
+      1169,
+      976,
+      447,
+      883
+    ],
+    "tool_calls": [
+      {
+        "name": "get_caller_context",
+        "ms": 17,
+        "ok": true
+      },
+      {
+        "name": "check_availability",
+        "ms": 26,
+        "ok": true
+      },
+      {
+        "name": "book_appointment",
+        "ms": 46,
+        "ok": true
+      }
+    ],
+    "transcript": [
+      {
+        "role": "user",
+        "content": "Hi, I think we got disconnected a few minutes ago."
+      },
+      {
+        "role": "assistant",
+        "content": "Sorry we got cut off, George. Which clinic would you prefer – the Bank branch or Canary Wharf?"
+      },
+      {
+        "role": "user",
+        "content": "Yes exactly, tomorrow morning. The earliest is fine."
+      },
+      {
+        "role": "assistant",
+        "content": "Great, George. Your appointment with Dr. Sarah Mistry at the Bank branch is confirmed for Friday 17 July at 8:00 am. Your confirmation number is 1."
+      },
+      {
+        "role": "user",
+        "content": "Yes, book it."
+      },
+      {
+        "role": "assistant",
+        "content": "Your appointment is all set, George. See you Friday 17 July at 8 am with Dr. Sarah Mistry at our Bank clinic. Have a great day!"
+      }
+    ]
+  },
+  {
+    "scenario": "en_stale_availability_recheck",
+    "language": "en",
+    "passed": true,
+    "failures": [],
+    "turns_to_completion": 2,
+    "redundant_questions": 0,
+    "llm_ms": [
+      558,
+      751,
+      682,
+      781,
+      680
+    ],
+    "tool_calls": [
+      {
+        "name": "get_caller_context",
+        "ms": 13,
+        "ok": true
+      },
+      {
+        "name": "check_availability",
+        "ms": 14,
+        "ok": true
+      },
+      {
+        "name": "check_availability",
+        "ms": 6,
+        "ok": true
+      }
+    ],
+    "transcript": [
+      {
+        "role": "user",
+        "content": "What does Dr Gupta at Canary Wharf have free tomorrow?"
+      },
+      {
+        "role": "assistant",
+        "content": "Dr. Anil Gupta at our Canary Wharf branch has openings tomorrow at 9:00 am, 9:40 am and 10:20 am. Which time works for you, and could I have your full name to confirm the booking?"
+      },
+      {
+        "role": "user",
+        "content": "Sorry, someone may have just taken those — can you check tomorrow again right now?"
+      },
+      {
+        "role": "assistant",
+        "content": "I see slots at 11:00 am, 11:40 am, 12:20 pm, 1:00 pm, 1:40 pm and 2:20 pm. Let me know which you’d like and your full name to lock it in."
+      }
+    ]
+  },
+  {
+    "scenario": "en_bot_honesty_and_handoff",
+    "language": "en",
+    "passed": true,
+    "failures": [],
+    "turns_to_completion": 2,
+    "redundant_questions": 0,
+    "llm_ms": [
+      882,
+      545,
+      619
+    ],
+    "tool_calls": [
+      {
+        "name": "log_follow_up",
+        "ms": 10,
+        "ok": true
+      }
+    ],
+    "transcript": [
+      {
+        "role": "user",
+        "content": "Am I talking to a robot? I'd rather speak to a real person about a billing mistake."
+      },
+      {
+        "role": "assistant",
+        "content": "I’m the clinic’s AI assistant – I can handle bookings, changes or cancellations, or take a message for staff. I’ll log your billing mistake and a team member will call you back shortly."
+      },
+      {
+        "role": "user",
+        "content": "Yes please, have someone call me back about the billing issue."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it. A member of our team will give you a call soon about the billing issue. Have a good day!"
+      }
+    ]
+  },
+  {
+    "scenario": "hi_full_booking",
+    "language": "hi",
+    "passed": true,
+    "failures": [],
+    "turns_to_completion": 3,
+    "redundant_questions": 0,
+    "llm_ms": [
+      569,
+      691,
+      807,
+      885,
+      721,
+      1560
+    ],
+    "tool_calls": [
+      {
+        "name": "get_caller_context",
+        "ms": 7,
+        "ok": true
+      },
+      {
+        "name": "check_availability",
+        "ms": 13,
+        "ok": true
+      },
+      {
+        "name": "book_appointment",
+        "ms": 178,
+        "ok": true
+      }
+    ],
+    "transcript": [
+      {
+        "role": "user",
+        "content": "नमस्ते, मुझे दाँतों की सफाई के लिए अपॉइंटमेंट चाहिए, गुरुवार सुबह का कोई भी समय ठीक है।"
+      },
+      {
+        "role": "assistant",
+        "content": "गुरुवार सुबह के ये तीन स्लॉट उपलब्ध हैं: 10:30 एएम, 11:00 एएम या 11:30 एएम, सभी City Dental Care — Bank में Dr. Priya Nair के साथ। कृपया अपना पूरा नाम और आप कौन सा समय चुनना चाहेंगे, बताइए।"
+      },
+      {
+        "role": "user",
+        "content": "पहला वाला ठीक है। मेरा नाम रोहन वर्मा है, जन्मतिथि पाँच जनवरी उन्नीस सौ नब्बे।"
+      },
+      {
+        "role": "assistant",
+        "content": "आपकी अपॉइंटमेंट पुष्टि हो गई है, Rohan Verma। Dr. Priya Nair के साथ City Dental Care — Bank में Thursday 16 July को 10:30 AM पर। आपका रेफ़रेंस नंबर 1 है। धन्यवाद!"
+      },
+      {
+        "role": "user",
+        "content": "हाँ, बुक कर दीजिए।"
+      },
+      {
+        "role": "assistant",
+        "content": "बिल्कुल, आपकी अपॉइंटमेंट अब पक्की हो गई है। Dr. Priya Nair के साथ City Dental Care — Bank में Thursday 16 July को 10:30 AM पर, रेफ़रेंस नंबर 1 के साथ। धन्यवाद!"
+      }
+    ]
+  },
+  {
+    "scenario": "hi_code_switch_booking",
+    "language": "hi",
+    "passed": true,
+    "failures": [],
+    "turns_to_completion": 4,
+    "redundant_questions": 0,
+    "llm_ms": [
+      1170,
+      557,
+      880,
+      914,
+      1018,
+      887,
+      1743,
+      852,
+      636
+    ],
+    "tool_calls": [
+      {
+        "name": "check_availability",
+        "ms": 40,
+        "ok": true
+      },
+      {
+        "name": "get_caller_context",
+        "ms": 8,
+        "ok": true
+      },
+      {
+        "name": "check_availability",
+        "ms": 49,
+        "ok": true
+      },
+      {
+        "name": "check_availability",
+        "ms": 64,
+        "ok": true
+      },
+      {
+        "name": "book_appointment",
+        "ms": 130,
+        "ok": true
+      }
+    ],
+    "transcript": [
+      {
+        "role": "user",
+        "content": "Hello, mujhe ek dentist appointment book karni hai — afternoon after I get off work, around saade chaar baje."
+      },
+      {
+        "role": "assistant",
+        "content": "Sure! Could you please tell me your full name and whether you’d prefer the Bank branch or Canary Wharf?"
+      },
+      {
+        "role": "user",
+        "content": "Haan koi bhi din chalega is week. Naam hai Kavita Rao, DOB is 22 June 1993."
+      },
+      {
+        "role": "assistant",
+        "content": "Great, Kavita. Would you prefer Thursday 16 July at 3:30 PM with Dr Sarah Mistry at our Bank branch, or Friday 17 July at 3:30 PM with Dr Sarah Mistry at the same branch?"
+      },
+      {
+        "role": "user",
+        "content": "Dhyaan rahe — saade chaar matlab 4:30 PM ke BAAD. Jo pehla slot ho after 4:30, wahi book kar do."
+      },
+      {
+        "role": "assistant",
+        "content": "Your appointment is confirmed — Kavita Rao with Dr Anil Gupta at City Dental Care — Canary Wharf on Thursday 16 July at 5:00 PM. Your confirmation number is 1."
+      },
+      {
+        "role": "user",
+        "content": "Haan, confirm."
+      },
+      {
+        "role": "assistant",
+        "content": "Got it, Kavita. Your appointment with Dr Anil Gupta at Canary Wharf on Thursday 16 July at 5 PM is all set. Confirmation number 1. Have a great day!"
+      }
+    ]
+  }
+]
