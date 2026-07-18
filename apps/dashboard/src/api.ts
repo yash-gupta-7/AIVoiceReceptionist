@@ -1,12 +1,14 @@
 // Thin fetch wrapper: JWT from localStorage, JSON errors surfaced as exceptions.
 const TOKEN_KEY = "clinic_token";
+// Same-origin (nginx proxy) in Docker Compose; separate origin (Render static site) needs this set.
+const API_BASE = import.meta.env.VITE_API_BASE ?? "";
 
 export const getToken = () => localStorage.getItem(TOKEN_KEY);
 export const setToken = (t: string) => localStorage.setItem(TOKEN_KEY, t);
 export const clearToken = () => localStorage.removeItem(TOKEN_KEY);
 
 export async function api<T>(path: string, options: RequestInit = {}): Promise<T> {
-  const res = await fetch(path, {
+  const res = await fetch(`${API_BASE}${path}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",

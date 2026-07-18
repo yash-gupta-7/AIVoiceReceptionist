@@ -4,6 +4,7 @@ import time
 from collections import defaultdict, deque
 
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from sqlalchemy import text
 
@@ -23,6 +24,15 @@ app.include_router(api_router)
 app.include_router(voice_router)
 app.include_router(vapi_router)
 app.include_router(pms_router)
+
+# Dashboard is a separate origin on Render (static site); auth is a Bearer
+# token, not cookies, so a wildcard origin carries no CSRF risk here.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # ponytail: in-memory sliding-window rate limiter; move to nginx/redis when
 # running more than one backend replica.
