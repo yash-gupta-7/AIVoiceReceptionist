@@ -13,9 +13,7 @@
 [![ElevenLabs](https://img.shields.io/badge/TTS-ElevenLabs-000000)](https://elevenlabs.io/)
 [![Deepgram](https://img.shields.io/badge/ASR-Deepgram-13EF93)](https://deepgram.com/)
 [![React](https://img.shields.io/badge/dashboard-React%2018%20%2B%20TS-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![License: unspecified](https://img.shields.io/badge/license-unspecified-lightgrey)](#-license)
-
-<sub>⚠️ No `LICENSE` file exists in this repository yet — add one before treating this as open source. See [License](#-license).</sub>
+[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
 </div>
 
@@ -303,4 +301,4 @@ ruff check .                 # lint
 
 ## 📄 License
 
-No `LICENSE` file currently exists in this repository. Until one is added, all rights are reserved by default and this code is **not** open source under any standard license. Add a `LICENSE` file (MIT, Apache-2.0, etc.) before publishing this as an open-source project.
+[MIT](LICENSE) © 2026 yash-gupta-7
