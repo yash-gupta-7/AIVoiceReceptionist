@@ -66,8 +66,9 @@ async def vapi_webhook(request: Request, db: AsyncSession = Depends(get_db)) -> 
             if handler is None:
                 result: dict = {"ok": False, "error": f"unknown tool {name}"}
             else:
-                # inject caller number for phone-keyed tools if the LLM omitted it
-                if "phone" in handler.__code__.co_varnames and not args.get("phone") and session:
+                # phone-keyed tools always mean THIS caller — trust telephony
+                # metadata over anything the LLM guesses/hallucinates for it
+                if "phone" in handler.__code__.co_varnames and session:
                     args["phone"] = session.caller
                 if name == "book_appointment" and session:
                     args["call_sid"] = session.sid

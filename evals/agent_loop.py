@@ -55,7 +55,7 @@ class SimulatedAgent:
         if handler is None:
             result: dict = {"ok": False, "error": f"unknown tool {name}"}
         else:
-            if "phone" in handler.__code__.co_varnames and not args.get("phone"):
+            if "phone" in handler.__code__.co_varnames:
                 args["phone"] = self.phone
             args.pop("call_sid", None)
             try:
